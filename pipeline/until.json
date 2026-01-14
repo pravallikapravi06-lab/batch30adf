@@ -1,0 +1,67 @@
+{
+	"name": "until",
+	"properties": {
+		"activities": [
+			{
+				"name": "Until1",
+				"type": "Until",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@equals(pipeline().parameters.par,variables('vari'))",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Wait1",
+							"type": "Wait",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"waitTimeInSeconds": 1
+							}
+						},
+						{
+							"name": "Set variable1",
+							"type": "SetVariable",
+							"dependsOn": [
+								{
+									"activity": "Wait1",
+									"dependencyConditions": [
+										"Completed"
+									]
+								}
+							],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "vari",
+								"value": 5
+							}
+						}
+					],
+					"timeout": "0.12:00:00"
+				}
+			}
+		],
+		"parameters": {
+			"par": {
+				"type": "int",
+				"defaultValue": 5
+			}
+		},
+		"variables": {
+			"vari": {
+				"type": "Integer",
+				"defaultValue": 6
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2026-01-05T12:03:09Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

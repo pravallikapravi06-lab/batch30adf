@@ -1,0 +1,24 @@
+{
+	"name": "AzureSqlDatabase3",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"server": "hypwa7003.database.windows.net",
+			"database": "GPM_7",
+			"encrypt": "mandatory",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "Pravi",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "keyssss",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "Pravisql"
+			}
+		}
+	}
+}

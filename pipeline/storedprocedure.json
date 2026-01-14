@@ -1,0 +1,48 @@
+{
+	"name": "storedprocedure",
+	"properties": {
+		"activities": [
+			{
+				"name": "Stored procedure1",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InsertIntoLACIMA]",
+					"storedProcedureParameters": {
+						"Age": {
+							"value": "26",
+							"type": "Int32"
+						},
+						"City": {
+							"value": "Bangalore ",
+							"type": "String"
+						},
+						"ID": {
+							"value": "5",
+							"type": "Int32"
+						},
+						"Name": {
+							"value": "Arjun",
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2026-01-07T09:47:11Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

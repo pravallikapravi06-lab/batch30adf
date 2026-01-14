@@ -1,0 +1,9 @@
+{
+	"name": "sqlwa065",
+	"location": "westus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "7bb488f1-99c4-4599-a04c-c5dab2514992",
+		"tenantId": "4539e1ed-e0ed-46b3-b165-1f22431bff25"
+	}
+}

@@ -1,0 +1,36 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Filter2",
+				"type": "Filter",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@variables('vara')",
+						"type": "Expression"
+					},
+					"condition": {
+						"value": "@equals(item(),10)",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"vara": {
+				"type": "Array",
+				"defaultValue": [
+					1,
+					6,
+					10
+				]
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2026-01-05T12:03:09Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

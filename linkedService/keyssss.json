@@ -1,0 +1,11 @@
+{
+	"name": "keyssss",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://pravikey.vault.azure.net/"
+		}
+	}
+}

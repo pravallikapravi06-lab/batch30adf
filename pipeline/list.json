@@ -1,0 +1,118 @@
+{
+	"name": "list",
+	"properties": {
+		"activities": [
+			{
+				"name": "Filter1",
+				"type": "Filter",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@variables('vara')",
+						"type": "Expression"
+					},
+					"condition": {
+						"value": "@greaterOrEquals(item(),6)",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Filter1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "varb",
+					"value": {
+						"value": "@activity('Filter1').output.value[1]",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set variable2",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Filter1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "vard",
+					"value": {
+						"value": "@activity('Filter1').output.FilteredItemsCount",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set variable3",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Filter1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "varc",
+					"value": {
+						"value": "@activity('Filter1').output.ItemsCount",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"vara": {
+				"type": "Array",
+				"defaultValue": [
+					2,
+					6,
+					9,
+					10
+				]
+			},
+			"varb": {
+				"type": "Integer"
+			},
+			"varc": {
+				"type": "Integer"
+			},
+			"vard": {
+				"type": "Integer"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2026-01-06T08:47:11Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

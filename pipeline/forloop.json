@@ -1,0 +1,58 @@
+{
+	"name": "forloop",
+	"properties": {
+		"activities": [
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.par",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Wait1",
+							"type": "Wait",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"waitTimeInSeconds": {
+									"value": "@item()",
+									"type": "Expression"
+								}
+							}
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"par": {
+				"type": "array",
+				"defaultValue": [
+					1,
+					2,
+					3,
+					4
+				]
+			}
+		},
+		"variables": {
+			"vara": {
+				"type": "Array",
+				"defaultValue": [
+					1,
+					2,
+					3,
+					4
+				]
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2026-01-05T14:27:06Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
